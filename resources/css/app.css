@@ -1,3 +1,117 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 100;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Thin.woff2) format('woff2'),
+              url(../../public/assets/fonts/Kalameh/Woff/Thin.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 200;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/ExtraLight.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/ExtraLight.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 300;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Light.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/Light.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 400;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Regular.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/Regular.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 500;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Medium.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/Medium.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 600;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/SemiBold.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/SemiBold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 700;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Bold.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/Bold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 800;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/ExtraBold.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/ExtraBold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'kalameh';
+        font-style: normal;
+        font-weight: 900;
+        src: url(../../public/assets/fonts/Kalameh/Woff2/Black.woff2) format('woff2'),
+        url(../../public/assets/fonts/Kalameh/Woff/Black.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 100;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/Thin.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/Thin.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 300;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/Light.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/Light.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 400;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/Regular.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/Regular.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 600;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/SemiBold.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/SemiBold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 700;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/Bold.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/Bold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 800;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/ExtraBold.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/ExtraBold.woff) format('woff');
+    }
+    @font-face {
+        font-family: 'YekanBakh';
+        font-style: normal;
+        font-weight: 900;
+        src: url(../../public/assets/fonts/YekanBakh/Woff2/Black.woff2) format('woff2'),
+        url(../../public/assets/fonts/YekanBakh/Woff/Black.woff) format('woff');
+    }
+}

@@ -4,10 +4,23 @@ export default {
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
       "./resources/**/*.vue",
+      "./node_modules/flowbite/**/*.js",
   ],
   theme: {
+      fontFamily: {
+          kalameh: [
+              'kalameh',
+              'sans-serif',
+          ],
+          yekanBakh: [
+              'YekanBakh',
+              'sans-serif',
+          ],
+      },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+      require('flowbite/plugin')
+  ],
 }
 
