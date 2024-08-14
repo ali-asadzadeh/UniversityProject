@@ -17,10 +17,15 @@ export default {
               'sans-serif',
           ],
       },
+      container: {
+        padding: {
+            '2xl': '5rem !important',
+        },
+      },
     extend: {},
   },
   plugins: [
-      require('flowbite/plugin')
+      require('flowbite/plugin'),
   ],
 }
 
