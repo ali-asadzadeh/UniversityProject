@@ -36,7 +36,7 @@
                         <li class="order-2 m-auto">
                             <ul class="xl:flex">
                                 <li>
-                                    <a href="#" class="block text-black hover:text-[#4A9C7E]  transition duration-300 transition duration-300 mx-5">
+                                    <a href="#" class="block text-black hover:text-[#4A9C7E] transition duration-300mx-5">
                                         صفحه اصلی
                                     </a>
                                 </li>
