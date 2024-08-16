@@ -14,6 +14,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
+        "@nextui-org/dropdown": "^2.1.29",
         "flowbite": "^2.4.1"
     }
 }
