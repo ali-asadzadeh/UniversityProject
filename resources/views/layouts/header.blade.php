@@ -24,7 +24,7 @@
                     <li class="order-2 m-auto">
                         <ul class="xl:flex">
                             <li>
-                                <a href="{{ url('/') }}" class="block text-black hover:text-[#4A9C7E] transition duration-300mx-5">
+                                <a href="{{ url('/') }}" class="block text-black hover:text-[#4A9C7E] transition duration-300 mx-5">
                                     صفحه اصلی
                                 </a>
                             </li>
