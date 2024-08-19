@@ -45,21 +45,28 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="my-auto text-center order-4 me-2">
-                        <a href="{{ url('ShoppingCart') }}" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1 transition duration-300">
-                            <i class="fa-light fa-cart-shopping-fast"></i>
-                        </a>
-                    </li>
-                    <li class="my-auto text-center order-4">
-                        <a href="{{ url('login') }}" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1 transition duration-300">
-                            ورود / ثبت نام
-                        </a>
-                    </li>
-                    <li class="my-auto text-center order-4 ms-2">
-                        <a href="{{ url('login') }}" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1 transition duration-300">
-                            خروج
-                        </a>
-                    </li>
+                    @if (Auth::check())
+                        <li class="my-auto text-center order-4">
+                            <a href="{{ url('ShoppingCart') }}" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1 transition duration-300">
+                                <i class="fa-light fa-cart-shopping-fast"></i>
+                            </a>
+                        </li>
+                        <li class="my-auto text-center order-4 ms-2">
+                            <form action="{{ url('logout') }}" method="POST">
+                                @csrf
+                                <button type="submit" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1.5 transition duration-300">
+                                    خروج
+                                </button>
+                            </form>
+                        </li>
+                    @else
+                        <li class="my-auto text-center order-4">
+                            <a href="{{ url('login') }}" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1 transition duration-300">
+                                ورود / ثبت نام
+                            </a>
+                        </li>
+                    @endif
+
                 </ul>
             </div>
         </nav>

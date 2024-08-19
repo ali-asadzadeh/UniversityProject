@@ -20,7 +20,22 @@
             </div>
             <div class="bg-white border rounded-lg block w-96 mx-auto">
                 <h3 class="text-center mt-5 font-medium">ورود به حساب کاربری</h3>
-                <form class="space-y-6 px-5 py-3" action="#" method="POST">
+                @if ($errors->any())
+                    <div class="bg-red-100 border border-red-400 mx-4 mt-5 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">خطا!</strong>
+                        <span class="block sm:inline">{{ implode('', $errors->all(':message')) }}</span>
+                    </div>
+                @endif
+
+                @if (session('success'))
+                    <div class="bg-green-100 border border-green-400 mx-4 mt-5 text-green-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">موفقیت!</strong>
+                        <span class="block sm:inline">{{ session('success') }}</span>
+                    </div>
+                @endif
+
+                <form class="space-y-6 px-5 py-3" action="/login" method="POST">
+                    @csrf
                     <div>
                         <label for="email" class="block text-sm font-medium leading-6 text-gray-900">ایمیل:</label>
                         <div class="mt-2">
@@ -32,7 +47,7 @@
                         <div class="flex items-center justify-between">
                             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">رمز عبور:</label>
                             <div class="text-sm">
-                                <a href="#" class="font-semibold text-[#5CAF90] hover:text-[#4A9C7E]">فراموشی رمز عبور؟</a>
+                                <a href="{{ route('password.request') }}" class="font-semibold text-[#5CAF90] hover:text-[#4A9C7E]">فراموشی رمز عبور؟</a>
                             </div>
                         </div>
                         <div class="mt-2">
