@@ -54,6 +54,7 @@
                         <li class="my-auto text-center order-4 ms-2">
                             <form action="{{ url('logout') }}" method="POST">
                                 @csrf
+                                @method('POST')
                                 <button type="submit" class="bg-[#4A9C7E] text-white hover:text-[#4A9C7E] hover:bg-white border border-[#4A9C7E] rounded-lg px-2 py-1.5 transition duration-300">
                                     خروج
                                 </button>
@@ -66,7 +67,6 @@
                             </a>
                         </li>
                     @endif
-
                 </ul>
             </div>
         </nav>

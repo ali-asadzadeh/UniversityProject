@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -30,7 +31,7 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        User::create([
+        $user = User::create([
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
@@ -38,13 +39,15 @@ class RegisterController extends Controller
             'role' => 'user',
         ]);
 
+        // ورود خودکار کاربر پس از ثبت ‌نام
+        Auth::login($user);
+
         return redirect('/')->with('success', 'ثبت‌ نام با موفقیت انجام شد.');
     }
+
     public function index()
     {
         $users = User::all();
         return view('admin.users', compact('users'));
     }
-
 }
-
