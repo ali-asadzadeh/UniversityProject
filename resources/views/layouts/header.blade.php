@@ -39,7 +39,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="block text-black hover:text-[#4A9C7E] transition duration-300 mx-5">
+                                <a href="{{ url('/aboutUs') }}" class="block text-black hover:text-[#4A9C7E] transition duration-300 mx-5">
                                     درباره ما
                                 </a>
                             </li>
