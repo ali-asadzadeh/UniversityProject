@@ -16,12 +16,18 @@
         @include('admin.layouts.header')
         <div class="bg-white row-span-11 grid grid-cols-12">
             <div class="col-span-12 bg-gray-50 py-4 mx-3">
-                <a href="{{ route('admin.users.create') }}" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center">ایجاد کاربر جدید</a>
+                <a href="{{ route('admin.users.create') }}" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center">
+                    <i class="fa-solid fa-plus me-1"></i>
+                    ایجاد کاربر جدید
+                </a>
             </div>
             <div class="relative overflow-x-auto sm:rounded-lg col-span-12">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
+                        <th scope="col" class="px-6 py-3">
+                            #
+                        </th>
                         <th scope="col" class="px-6 py-3">
                             آیدی
                         </th>
@@ -45,6 +51,9 @@
                     <tbody>
                     @foreach ($users as $user)
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                            <td class="px-6 py-4">
+                                {{ $loop->iteration }}
+                            </td>
                             <td class="px-6 py-4">
                                 {{ $user->id }}
                             </td>

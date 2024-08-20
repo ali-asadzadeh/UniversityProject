@@ -9,13 +9,16 @@
             </div>
 
             <div class="col-span-3">
-                <form action="{{ url('logout') }}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <button type="submit" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center w-full">
-                        خروج
-                    </button>
-                </form>
+                @if (Auth::check())
+                    <form action="{{ url('logout') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <button type="submit" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center w-full">
+                            خروج
+                        </button>
+                    </form>
+                @endif
+
             </div>
         </div>
     </div>
