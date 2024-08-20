@@ -40,7 +40,11 @@ class RegisterController extends Controller
 
         return redirect('/')->with('success', 'ثبت‌ نام با موفقیت انجام شد.');
     }
-
+    public function index()
+    {
+        $users = User::all();
+        return view('admin.users', compact('users'));
+    }
 
 }
 

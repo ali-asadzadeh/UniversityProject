@@ -11,9 +11,9 @@
 </head>
 <body class="font-kalameh">
 <div class="grid grid-cols-12 h-screen">
-    @include('admin/layouts/sidebar')
+    @include('admin.layouts.sidebar')
     <div class="col-span-10 bg-gray-50">
-        @include('admin/layouts/header')
+        @include('admin.layouts.header')
         <div class="bg-white row-span-11 ">
             سفارشات
         </div>
