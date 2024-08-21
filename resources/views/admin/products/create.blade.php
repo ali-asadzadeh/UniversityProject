@@ -15,72 +15,69 @@
     <div class="col-span-10 bg-gray-50">
         @include('admin.layouts.header')
         <div class="bg-white row-span-11">
-            <div class="relative overflow-x-auto sm:rounded-lg mt-5">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            #
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            آیدی
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نام
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نام خانوادگی
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            ایمیل
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نقش
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            تنظیمات
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($users as $user)
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->id }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->firstname }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->lastname }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->email }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->role }}
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-[#5CAF90] hover:underline">
-                                    <i class="fa-duotone fa-solid fa-pen-to-square me-1"></i>
-                                    ویرایش
-                                </a>
-                                <a href="#" class="font-medium text-red-700 hover:underline ms-2">
-                                    <i class="fa-duotone fa-solid fa-trash me-1"></i>
-                                    حذف
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+            <div class="relative overflow-x-auto sm:rounded-lg">
+                <div class="mx-5 pt-3 text-[#4A9C7E] font-medium text-xl">
+                    ایجاد محصول
+                </div>
+                @if ($errors->any())
+                    <div class="bg-red-100 border border-red-400 text-red-700 mx-4 mt-4 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">خطا!</strong>
+                        <span class="block sm:inline">{{ implode('', $errors->all(':message')) }}</span>
+                    </div>
+                @endif
+
+                @if (session('success'))
+                    <div class="bg-green-100 border border-green-400 text-green- mx-4 mt-4 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">موفقیت!</strong>
+                        <span class="block sm:inline">{{ session('success') }}</span>
+                    </div>
+                @endif
+                <form class="space-y-6 px-5 pb-3" action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="grid gap-5 grid-cols-2 mt-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">نام محصول:</label>
+                            <div class="mt-2">
+                                <input id="name" name="name" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="category" class="block text-sm font-medium leading-6 text-gray-900">دسته بندی:</label>
+                            <div class="mt-2">
+                                <input id="category" name="category" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid gap-5 grid-cols-2 mt-5">
+                        <div>
+                            <label for="price" class="block text-sm font-medium leading-6 text-gray-900">قیمت:</label>
+                            <div class="mt-2">
+                                <input id="price" name="price" type="number" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="image" class="block text-sm font-medium leading-6 text-gray-900">تصویر محصول:</label>
+                            <div class="mt-2">
+                                <label for="image" class="block w-full rounded-md border-0 py-1.5 shadow-sm text-center cursor-pointer focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">
+                                    آپلود تصویر
+                                </label>
+                                <input id="image" name="image" type="file" accept="image/*" required class="hidden">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <button type="submit" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E]">ایجاد</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.querySelector('label[for="image_path"]').addEventListener('click', function() {
+        document.getElementById('image_path').click();
+    });
+</script>
 <script src="{{ asset('assets/js/flowbite.min.js') }}"></script>
 </body>
 </html>

@@ -15,69 +15,7 @@
     <div class="col-span-10 bg-gray-50">
         @include('admin.layouts.header')
         <div class="bg-white row-span-11">
-            <div class="relative overflow-x-auto sm:rounded-lg mt-5">
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                    <tr>
-                        <th scope="col" class="px-6 py-3">
-                            #
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            آیدی
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نام
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نام خانوادگی
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            ایمیل
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            نقش
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            تنظیمات
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($users as $user)
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                {{ $loop->iteration }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->id }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->firstname }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->lastname }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->email }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $user->role }}
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-[#5CAF90] hover:underline">
-                                    <i class="fa-duotone fa-solid fa-pen-to-square me-1"></i>
-                                    ویرایش
-                                </a>
-                                <a href="#" class="font-medium text-red-700 hover:underline ms-2">
-                                    <i class="fa-duotone fa-solid fa-trash me-1"></i>
-                                    حذف
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+
         </div>
     </div>
 </div>

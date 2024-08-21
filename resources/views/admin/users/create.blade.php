@@ -15,7 +15,10 @@
     <div class="col-span-10 bg-gray-50">
         @include('admin.layouts.header')
         <div class="bg-white row-span-11">
-            <div class="relative overflow-x-auto sm:rounded-lg mt-5">
+            <div class="mx-5 pt-3 text-[#4A9C7E] font-medium text-xl">
+                ایجاد کاربر
+            </div>
+            <div class="relative overflow-x-auto sm:rounded-lg">
                 @if ($errors->any())
                     <div class="bg-red-100 border border-red-400 text-red-700 mx-4 mt-4 px-4 py-3 rounded relative" role="alert">
                         <strong class="font-bold">خطا!</strong>
