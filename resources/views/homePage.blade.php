@@ -90,20 +90,21 @@
                     </div>
                 </div>
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mx-4 md:mx-0">
+                    @foreach($posts as $post)
                     <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
                         <div class="card-img border-b">
-                            <img src="{{ asset('assets/images/1_1.jpg') }}" alt="" class="w-[327px] h-[285px]">
+                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="" class="w-[327px] h-[285px]">
                         </div>
                         <div class="card-body">
                             <div class="mt-2 ms-4 text-sm text-gray-400">
-                                <p>تنقلات</p>
+                                <p>{{ $post->description }}</p>
                             </div>
                             <div class="ms-4 mb-2">
-                                <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
+                                <h3 class="font-medium">{{ $post->title }}</h3>
                             </div>
                             <div class="grid gap-5 grid-cols-2 mx-4">
                                 <div>
-                                    <p><span>78</span> تومان</p>
+                                    <p><span>{{ $post->price }}</span> تومان</p>
                                 </div>
                                 <div class="ms-auto">
                                     <a href="">
@@ -128,120 +129,7 @@
                             <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
                         </div>
                     </div>
-                    <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="card-img border-b">
-                            <img src="{{ asset('assets/images/2_1.jpg') }}" alt="" class="w-[327px] h-[285px]">
-                        </div>
-                        <div class="card-body">
-                            <div class="mt-2 ms-4 text-sm text-gray-400">
-                                <p>تنقلات</p>
-                            </div>
-                            <div class="ms-4 mb-2">
-                                <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                            </div>
-                            <div class="grid gap-5 grid-cols-2 mx-4">
-                                <div>
-                                    <p><span>78</span> تومان</p>
-                                </div>
-                                <div class="ms-auto">
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mx-4 my-3">
-                            <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-                    <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="card-img border-b">
-                            <img src="{{ asset('assets/images/3_1.jpg') }}" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="mt-2 ms-4 text-sm text-gray-400">
-                                <p>تنقلات</p>
-                            </div>
-                            <div class="ms-4 mb-2">
-                                <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                            </div>
-                            <div class="grid gap-5 grid-cols-2 mx-4">
-                                <div>
-                                    <p><span>78</span> تومان</p>
-                                </div>
-                                <div class="ms-auto">
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mx-4 my-3">
-                            <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
-                    <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="card-img border-b">
-                            <img src="{{ asset('assets/images/4_1.jpg') }}" alt="">
-                        </div>
-                        <div class="card-body">
-                            <div class="mt-2 ms-4 text-sm text-gray-400">
-                                <p>تنقلات</p>
-                            </div>
-                            <div class="ms-4 mb-2">
-                                <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                            </div>
-                            <div class="grid gap-5 grid-cols-2 mx-4">
-                                <div>
-                                    <p><span>78</span> تومان</p>
-                                </div>
-                                <div class="ms-auto">
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mx-4 my-3">
-                            <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

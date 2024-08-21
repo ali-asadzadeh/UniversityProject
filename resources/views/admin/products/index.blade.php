@@ -64,9 +64,9 @@
                                 {{ $product->category }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $product->price }}
+                                {{ $product->price }} تومان
                             </td>
-                            <td class="px-6 py-4">
+                            <td class="px-6 py-4 flex">
                                 @if($product->image_path && file_exists(storage_path('app/public/' . $product->image_path)))
                                     <img src="{{ asset('storage/' . $product->image_path) }}" alt="Product Image" class="w-20 h-auto">
                                 @else
