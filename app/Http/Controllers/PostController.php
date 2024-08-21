@@ -20,7 +20,7 @@ class PostController extends Controller
     }
 
 
-public function index(): View
+    public function index(): View
     {
         $posts = Post::all();
         return view('admin.posts.index', ['posts' => $posts]);

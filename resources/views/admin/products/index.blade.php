@@ -38,6 +38,9 @@
                             دسته بندی
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            وضعیت
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             قیمت
                         </th>
                         <th scope="col" class="px-6 py-3">
@@ -62,6 +65,9 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $product->category }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $product->status_label }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $product->price }} تومان

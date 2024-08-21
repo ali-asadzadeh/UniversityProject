@@ -12,6 +12,8 @@ use App\Http\Controllers\PostController;
 Route::resource('products', ProductController::class);
 
 Route::get('/', [PostController::class, 'homePage']);
+Route::get('/', [ProductController::class, 'homepage']);
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'index']);
@@ -20,6 +22,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/posts/index', [AdminController::class, 'postsIndex']);
     // افزودن سایر مسیرهای ادمین در اینجا
 });
+
 
 // مسیرهای صفحات ثابت
 
@@ -48,6 +51,7 @@ Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkReques
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+
 
 // مسیرهای ادمین با میانه‌افزار auth
 Route::middleware('auth')->group(function () {

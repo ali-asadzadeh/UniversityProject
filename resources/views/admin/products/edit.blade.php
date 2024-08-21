@@ -58,6 +58,22 @@
                         </div>
                     </div>
                     <div>
+                        <div>
+                            <label for="status" class="block text-sm font-medium leading-6 text-gray-900">وضعیت:</label>
+                            <div class="mt-2">
+                                <select name="status" class="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6" required>
+                                    <option value="" >وضعیت را انتخاب کنید</option>
+                                    <option value="amazing" {{ $product->status == 'amazing' ? 'selected' : '' }}>شگفت انگیز</option>
+                                    <option value="bestseller" {{ $product->status == 'user' ? 'bestseller' : '' }}>پر فروش</option>
+                                    <option value="popular" {{ $product->status == 'user' ? 'popular' : '' }}>محبوب</option>
+                                    <option value="hot" {{ $product->status == 'user' ? 'hot' : '' }}>داغ ترین</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid gap-5 grid-cols-2 mt-5">
+                    <div>
                         <label for="image" class="block text-sm font-medium leading-6 text-gray-900">تصویر محصول:</label>
                         <div class="mt-2">
                             <label for="image" class="block w-full rounded-md border-0 py-1.5 shadow-sm text-center cursor-pointer focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">

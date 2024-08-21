@@ -8,9 +8,19 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
+    public function homePage()
+    {
+        // بارگذاری پست‌ها از پایگاه داده
+        $products = Product::all();
+
+        // ارسال پست‌ها به نمای homePage
+        return view('homepage', ['products' => $products]);
+    }
+
     public function index(): View
     {
-        $products = DB::table('products')->get();
+        $products = Product::hydrate(DB::table('products')->get()->toArray());
+
         return view('admin.products.index', ['products' => $products]);
     }
 
@@ -26,6 +36,7 @@ class ProductController extends Controller
             'category' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // تنظیمات اعتبارسنجی تصویر
             'price' => 'required|numeric',
+            'status' => 'required|in:amazing,bestseller,popular,hot', // اعتبارسنجی وضعیت
         ]);
 
         // ذخیره تصویر
@@ -38,6 +49,7 @@ class ProductController extends Controller
             'category' => $request->category,
             'image_path' => $imagePath ?? '', // مسیر تصویر
             'price' => $request->price,
+            'status' => $request->status, // ذخیره وضعیت
         ]);
 
         return redirect()->route('products.index')->with('success', 'Product created successfully.');
@@ -57,21 +69,18 @@ class ProductController extends Controller
             'category' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // اعتبارسنجی تصویر
             'price' => 'required|numeric',
+            'status' => 'required|in:amazing,bestseller,popular,hot', // اعتبارسنجی وضعیت
         ]);
 
         $product = Product::findOrFail($id); // پیدا کردن محصول با شناسه مشخص
 
         // به‌روزرسانی تصویر در صورت وجود
         if ($request->hasFile('image')) {
-            // حذف تصویر قبلی اگر موجود باشد
             if ($product->image_path && file_exists(storage_path('app/public/' . $product->image_path))) {
                 unlink(storage_path('app/public/' . $product->image_path));
             }
-
-            // ذخیره تصویر جدید و دریافت مسیر آن
             $imagePath = $request->file('image')->store('images', 'public');
         } else {
-            // اگر تصویر جدیدی بارگذاری نشود، مسیر تصویر قبلی را حفظ کن
             $imagePath = $product->image_path;
         }
 
@@ -81,7 +90,8 @@ class ProductController extends Controller
             'category' => $request->category,
             'image_path' => $imagePath,
             'price' => $request->price,
-            'updated_at' => now(), // به‌روزرسانی updated_at
+            'status' => $request->status, // به‌روزرسانی وضعیت
+            'updated_at' => now(),
         ]);
 
         return redirect()->route('admin.products.index')->with('success', 'محصول با موفقیت ویرایش شد.');

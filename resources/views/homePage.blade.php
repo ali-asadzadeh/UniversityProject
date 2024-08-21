@@ -90,45 +90,47 @@
                     </div>
                 </div>
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mx-4 md:mx-0">
-                    @foreach($posts as $post)
-                    <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="card-img border-b">
-                            <img src="{{ asset('storage/' . $post->image_path) }}" alt="" class="w-[327px] h-[285px]">
-                        </div>
-                        <div class="card-body">
-                            <div class="mt-2 ms-4 text-sm text-gray-400">
-                                <p>{{ $post->description }}</p>
-                            </div>
-                            <div class="ms-4 mb-2">
-                                <h3 class="font-medium">{{ $post->title }}</h3>
-                            </div>
-                            <div class="grid gap-5 grid-cols-2 mx-4">
-                                <div>
-                                    <p><span>{{ $post->price }}</span> تومان</p>
+                    @foreach($products as $product)
+                        @if($product->status == 'amazing')
+                            <div class="card border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
+                                <div class="card-img border-b">
+                                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-[327px] h-[285px]">
                                 </div>
-                                <div class="ms-auto">
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
-                                    <a href="">
-                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                    </a>
+                                <div class="card-body">
+                                    <div class="mt-2 ms-4 text-sm text-gray-400">
+                                        <p>{{ $product->category }}</p>
+                                    </div>
+                                    <div class="ms-4 mb-2">
+                                        <h3 class="font-medium">{{ $product->name }}</h3>
+                                    </div>
+                                    <div class="grid gap-5 grid-cols-2 mx-4">
+                                        <div>
+                                            <p><span>{{ $product->price }}</span> تومان</p>
+                                        </div>
+                                        <div class="ms-auto">
+                                            <a href="">
+                                                <i class="fa-duotone fa-solid fa-star text-sm"></i>
+                                            </a>
+                                            <a href="">
+                                                <i class="fa-duotone fa-solid fa-star text-sm"></i>
+                                            </a>
+                                            <a href="">
+                                                <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                            </a>
+                                            <a href="">
+                                                <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                            </a>
+                                            <a href="">
+                                                <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mx-4 my-3">
+                                    <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="mx-4 my-3">
-                            <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
-                        </div>
-                    </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -141,275 +143,98 @@
                     </div>
                     <div>
                         <div class="font-medium text-xl mb-5">
-                           <h3>محصولات<span class="text-[#5CAF90]"> پرفروش</span></h3>
+                            <h3>محصولات<span class="text-[#5CAF90]"> پرفروش</span></h3>
                         </div>
                         <div class="grid gap-2 grid-cols-1">
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
+                            @foreach($products as $product)
+                                @if($product->status == 'bestseller')
+                                    <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
+                                        <div class="grid grid-cols-3 relative">
+                                            <div class="mx-auto my-auto">
+                                                <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-[70px] h-[61px]">
+                                            </div>
+                                            <div class="col-span-2 pb-2">
+                                                <div>
+                                                    <h3 class="text-gray-600 my-2 font-medium">{{ $product->name }}</h3>
+                                                    <p class="text-gray-400 text-xs mb-2">{{ $product->category }}</p>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm">{{ $product->price }} <span>تومان</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
+                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
+                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div>
                         <div class="font-medium text-xl mb-5">
-                            <h3>محصولات<span class="text-[#5CAF90]"> پرفروش</span></h3>
+                            <h3>محصولات<span class="text-[#5CAF90]"> محبوب</span></h3>
                         </div>
                         <div class="grid gap-2 grid-cols-1">
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
+                            @foreach($products as $product)
+                                @if($product->status == 'popular')
+                                    <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
+                                        <div class="grid grid-cols-3 relative">
+                                            <div class="mx-auto my-auto">
+                                                <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-[70px] h-[61px]">
+                                            </div>
+                                            <div class="col-span-2 pb-2">
+                                                <div>
+                                                    <h3 class="text-gray-600 my-2 font-medium">{{ $product->name }}</h3>
+                                                    <p class="text-gray-400 text-xs mb-2">{{ $product->category }}</p>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm">{{ $product->price }} <span>تومان</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
+                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
+                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                     <div>
                         <div class="font-medium text-xl mb-5">
-                            <h3>محصولات<span class="text-[#5CAF90]"> پرفروش</span></h3>
+                            <h3>محصولات<span class="text-[#5CAF90]"> داغ</span></h3>
                         </div>
                         <div class="grid gap-2 grid-cols-1">
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
+                            @foreach($products as $product)
+                                @if($product->status == 'hot')
+                                    <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
+                                        <div class="grid grid-cols-3 relative">
+                                            <div class="mx-auto my-auto">
+                                                <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}" class="w-[70px] h-[61px]">
+                                            </div>
+                                            <div class="col-span-2 pb-2">
+                                                <div>
+                                                    <h3 class="text-gray-600 my-2 font-medium">{{ $product->name }}</h3>
+                                                    <p class="text-gray-400 text-xs mb-2">{{ $product->category }}</p>
+                                                </div>
+                                                <div>
+                                                    <p class="text-sm">{{ $product->price }} <span>تومان</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
+                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
+                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-white border border-gray-100 rounded duration-300 ease-in-out hover:shadow-lg">
-                                <div class="grid grid-cols-3 relative">
-                                    <div class="mx-auto my-auto">
-                                        <img src="{{ asset('assets/images/7_2.jpg') }}" alt="" class="w-[70px] h-[61px]">
-                                    </div>
-                                    <div class="col-span-2 pb-2">
-                                        <div>
-                                            <h3 class="text-gray-600 my-2 font-medium">گردو مرغوب درجه 1</h3>
-                                            <p class="text-gray-400 text-xs mb-2">مرکبات</p>
-                                        </div>
-                                        <div>
-                                            <p class="text-sm">38 <span>تومان</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                        <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                            <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>
