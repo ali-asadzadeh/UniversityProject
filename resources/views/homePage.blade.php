@@ -81,14 +81,18 @@
                     <div class="mx-auto md:mx-0">
                         <p class="font-bold text-2xl">پیشنهاد <span class="text-[#5CAF90]">شگفت انگیز</span></p>
                     </div>
-                    <div class="flex flex-row justify-end col-span-3 font-kalameh font-medium text-xl mx-auto md:mx-0">
-                        <div class="mx-2 p-2 rounded bg-white">24</div>
-                        <span class="py-2">:</span>
-                        <div class="mx-2 p-2 rounded bg-white">13</div>
-                        <span class="py-2">:</span>
-                        <div class="mx-2 p-2 rounded bg-white">56</div>
+                        @foreach($countdowns as $index => $countdown)
+                            @if($countdown->status == 'amazing')
+                                <div class="flex flex-row justify-end col-span-3 font-kalameh font-medium text-xl mx-auto md:mx-0 countdown-timer" data-countdown-end="{{ $countdown->end_at }}">
+                                    <div class="mx-2 p-2 rounded bg-white countdown-seconds">00</div>
+                                    <span class="py-2">:</span>
+                                    <div class="mx-2 p-2 rounded bg-white countdown-minutes">00</div>
+                                    <span class="py-2">:</span>
+                                    <div class="mx-2 p-2 rounded bg-white countdown-hours">00</div>
+                                </div>
+                            @endif
+                        @endforeach
                     </div>
-                </div>
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mx-4 md:mx-0">
                     @foreach($products as $product)
                         @if($product->status == 'amazing')
@@ -246,171 +250,93 @@
                     <p class="font-bold text-2xl">مقالات <span class="text-[#5CAF90]">وبلاک</span></p>
                 </div>
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-                    <div class="border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="rounded">
-                            <img src="{{ asset('assets/images/1.jpg') }}" alt="" class="rounded">
-                        </div>
-                        <div class="my-2 mx-3">
-                            <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-2">
-                            <div>
-                                <p>امتیاز</p>
+                    @foreach($posts as $post)
+                        <div class="border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
+                            <div class="rounded">
+                                <img src="{{ asset('storage/' . $post->image_path) }}" alt="{{ $post->name }}" class="rounded">
                             </div>
-                            <div class="ms-auto">
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
+                            <div class="my-2 mx-3">
+                                <h3 class="font-medium">{{ $post->title }}</h3>
                             </div>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-4">
-                            <div>
-                                <p class="text-sm text-gray-400">1 مرداد 1403</p>
+                            <div class="grid gap-5 grid-cols-2 mx-3 my-2">
+                                <div>
+                                    <p>امتیاز</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <a href="">
+                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa-duotone fa-solid fa-star text-sm"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                    </a>
+                                    <a href="">
+                                        <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="ms-auto">
-                                <a href="#" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1.5 text-center w-full">ادامه مطلب
-                                    <i class="fa-solid fa-angles-left align-middle"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="rounded">
-                            <img src="{{ asset('assets/images/2.jpg') }}" alt="" class="rounded">
-                        </div>
-                        <div class="my-2 mx-3">
-                            <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-2">
-                            <div>
-                                <p>امتیاز</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
+                            <div class="grid gap-5 grid-cols-2 mx-3 my-4">
+                                <div>
+                                    <p class="text-sm text-gray-400">{{ $post->date }}</p>
+                                </div>
+                                <div class="ms-auto">
+                                    <a href="#" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1.5 text-center w-full">ادامه مطلب
+                                        <i class="fa-solid fa-angles-left align-middle"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-4">
-                            <div>
-                                <p class="text-sm text-gray-400">1 مرداد 1403</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="#" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1.5 text-center w-full">ادامه مطلب
-                                    <i class="fa-solid fa-angles-left align-middle"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="rounded">
-                            <img src="{{ asset('assets/images/3.jpg') }}" alt="" class="rounded">
-                        </div>
-                        <div class="my-2 mx-3">
-                            <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-2">
-                            <div>
-                                <p>امتیاز</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-4">
-                            <div>
-                                <p class="text-sm text-gray-400">1 مرداد 1403</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="#" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1.5 text-center w-full">ادامه مطلب
-                                    <i class="fa-solid fa-angles-left align-middle"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="border border-gray-100 rounded bg-white duration-300 ease-in-out hover:shadow-lg">
-                        <div class="rounded">
-                            <img src="{{ asset('assets/images/4.jpg') }}" alt="" class="rounded">
-                        </div>
-                        <div class="my-2 mx-3">
-                            <h3 class="font-medium">چیپس سیب زمینی، طعم خامه و پیاز</h3>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-2">
-                            <div>
-                                <p>امتیاز</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                                <a href="">
-                                    <i class="fa-duotone fa-solid fa-star text-amber-400 text-sm"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="grid gap-5 grid-cols-2 mx-3 my-4">
-                            <div>
-                                <p class="text-sm text-gray-400">1 مرداد 1403</p>
-                            </div>
-                            <div class="ms-auto">
-                                <a href="#" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1.5 text-center w-full">ادامه مطلب
-                                    <i class="fa-solid fa-angles-left align-middle"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
     </main>
     @include('layouts/footer')
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            function startCountdown(element, endTime) {
+                function updateCountdown() {
+                    const now = new Date().getTime();
+                    const distance = endTime - now;
+
+                    if (distance < 0) {
+                        clearInterval(interval);
+                        element.querySelector(".countdown-hours").innerHTML = "00";
+                        element.querySelector(".countdown-minutes").innerHTML = "00";
+                        element.querySelector(".countdown-seconds").innerHTML = "00";
+                        return;
+                    }
+
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    element.querySelector(".countdown-hours").innerHTML = String(hours).padStart(2, '0');
+                    element.querySelector(".countdown-minutes").innerHTML = String(minutes).padStart(2, '0');
+                    element.querySelector(".countdown-seconds").innerHTML = String(seconds).padStart(2, '0');
+                }
+
+                updateCountdown();
+                const interval = setInterval(updateCountdown, 1000);
+            }
+
+            document.querySelectorAll('.countdown-timer').forEach(timer => {
+                const endTimeStr = timer.getAttribute('data-countdown-end');
+                const endTime = new Date(endTimeStr).getTime();
+                if (!isNaN(endTime)) {
+                    startCountdown(timer, endTime);
+                } else {
+                    console.error("Invalid end time format for:", endTimeStr);
+                }
+            });
+        });
+    </script>
+
     <script src="{{ asset('assets/js/flowbite.min.js') }}"></script>
 </body>
 </html>

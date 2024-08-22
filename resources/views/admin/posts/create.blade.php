@@ -41,26 +41,26 @@
                         </div>
                     </div>
                     <div>
-                        <label for="description" class="block text-sm font-medium leading-6 text-gray-900">توضیحات:</label>
+                        <label for="rating" class="block text-sm font-medium leading-6 text-gray-900">امتیاز:</label>
                         <div class="mt-2">
-                            <input id="description" name="description" type="text" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
+                            <input id="rating" name="rating" type="number" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
                         </div>
                     </div>
                 </div>
                 <div class="grid gap-5 grid-cols-2 mt-5">
                     <div>
-                        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">قیمت:</label>
+                        <label for="date" class="block text-sm font-medium leading-6 text-gray-900">تاریخ:</label>
                         <div class="mt-2">
-                            <input id="price" name="price" type="number" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
+                            <input id="date" name="date" type="date" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div>
-                        <label for="image" class="block text-sm font-medium leading-6 text-gray-900">تصویر:</label>
+                        <label for="image_path" class="block text-sm font-medium leading-6 text-gray-900">تصویر:</label>
                         <div class="mt-2">
-                            <label for="image" class="block w-full rounded-md border-0 py-1.5 shadow-sm text-center cursor-pointer focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">
+                            <label for="image_path" class="block w-full rounded-md border-0 py-1.5 shadow-sm text-center cursor-pointer focus:ring-2 focus:outline-none focus:ring-[#4A9C7E] sm:text-sm sm:leading-6 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400">
                                 آپلود تصویر
                             </label>
-                            <input id="image" name="image" type="file" accept="image/*" class="hidden">
+                            <input id="image_path" name="image_path" type="file" accept="image/*" class="hidden">
                         </div>
                     </div>
                 </div>
@@ -71,6 +71,11 @@
         </div>
     </div>
 </div>
+<script>
+    document.querySelector('label[for="image_path_path"]').addEventListener('click', function() {
+        document.getElementById('image_path_path').click();
+    });
+</script>
 <script src="{{ asset('assets/js/flowbite.min.js') }}"></script>
 </body>
 </html>

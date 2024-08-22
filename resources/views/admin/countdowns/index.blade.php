@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width, countdown-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('assets/FontAwesome/css/all.css') }}">
     <title>پنل ادمین</title>
@@ -14,11 +14,11 @@
     @include('admin.layouts.sidebar')
     <div class="col-span-10 bg-gray-50">
         @include('admin.layouts.header')
-        <div class="bg-white row-span-11 ">
+        <div class="bg-white row-span-11 grid grid-cols-12">
             <div class="col-span-12 bg-gray-50 py-4 mx-3">
-                <a href="{{ route('admin.products.create') }}" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center">
+                <a href="{{ route('admin.countdowns.create') }}" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-1 text-center">
                     <i class="fa-solid fa-plus me-1"></i>
-                    ایجاد محصول جدید
+                    ایجاد شمارشگر جدید
                 </a>
             </div>
             <div class="relative overflow-x-auto sm:rounded-lg col-span-12">
@@ -32,19 +32,13 @@
                             آیدی
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            نام محصول
+                            عنوان
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            دسته بندی
+                            تاریخ پایان
                         </th>
                         <th scope="col" class="px-6 py-3">
                             وضعیت
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            قیمت
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            تصویر
                         </th>
                         <th scope="col" class="px-6 py-3">
                             تنظیمات
@@ -52,42 +46,32 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($countdowns as $countdown)
                         <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                             <td class="px-6 py-4">
                                 {{ $loop->iteration }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $product->id }}
+                                {{ $countdown->id }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $product->name }}
+                                {{ $countdown->title }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $product->category }}
+                                {{ $countdown->end_at }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $product->status_label }}
-                            </td>
-                            <td class="px-6 py-4">
-                                {{ $product->price }} تومان
-                            </td>
-                            <td class="px-6 py-4">
-                                @if($product->image_path && file_exists(storage_path('app/public/' . $product->image_path)))
-                                    <img src="{{ asset('storage/' . $product->image_path) }}" alt="Product Image" class="w-20 h-auto">
-                                @else
-                                    <p>تصویر موجود نیست</p>
-                                @endif
+                                {{ $countdown->status_label }}
                             </td>
                             <td class="px-6 py-4 flex">
                                 <div>
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="font-medium text-[#5CAF90] hover:underline">
+                                    <a href="{{ route('admin.countdowns.edit', $countdown->id) }}" class="font-medium text-[#5CAF90] hover:underline">
                                         <i class="fa-duotone fa-solid fa-pen-to-square me-1"></i>
                                         ویرایش
                                     </a>
                                 </div>
                                 <div>
-                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('آیا مطمئن هستید؟');">
+                                    <form action="{{ route('admin.countdowns.destroy', $countdown->id) }}" method="POST" onsubmit="return confirm('آیا مطمئن هستید؟');">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="font-medium text-red-700 hover:underline ms-2">

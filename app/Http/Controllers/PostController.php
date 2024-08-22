@@ -9,24 +9,13 @@ use Illuminate\View\View;
 
 class PostController extends Controller
 {
-
-    public function homePage()
-    {
-        // بارگذاری پست‌ها از پایگاه داده
-        $posts = Post::all();
-
-        // ارسال پست‌ها به نمای homePage
-        return view('homePage', ['posts' => $posts]);
-    }
-
-
-    public function index(): View
+    public function index()
     {
         $posts = Post::all();
-        return view('admin.posts.index', ['posts' => $posts]);
+        return view('admin.posts.index', compact('posts'));
     }
 
-    public function create(): View
+    public function create()
     {
         return view('admin.posts.create');
     }
@@ -35,75 +24,75 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric',
+            'rating' => 'required|integer',
+            'date' => 'required|date',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $imagePath = null;
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+        $post = new Post();
+        $post->title = $request->input('title');
+        $post->rating = $request->input('rating');
+        $post->date = $request->input('date');
+
+        if ($request->hasFile('image_path')) {
+            $imagePath = $request->file('image_path')->store('public/posts/images');
+            $post->image_path = str_replace('public/', '', $imagePath);
         }
 
-        Post::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'image_path' => $imagePath,
-            'price' => $request->price,
-        ]);
+        $post->save();
 
-        return redirect()->route('admin.posts.index')->with('success', 'Post created successfully.');
+        return redirect()->route('admin.posts.index');
     }
 
     public function edit($id): View
     {
-        $post = Post::findOrFail($id);
-        return view('admin.posts.edit', ['post' => $post]);
+        $post = post::findOrFail($id); // پیدا کردن محصول با شناسه مشخص
+        return view('admin.posts.edit', ['post' => $post]); // ارسال محصول به نما
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'price' => 'required|numeric',
+            'rating' => 'required|integer',
+            'date' => 'required|date',
+            'image_path' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $post = Post::findOrFail($id);
 
-        if ($request->hasFile('image')) {
-            // حذف تصویر قبلی
-            if ($post->image_path && Storage::exists('public/' . $post->image_path)) {
-                Storage::delete('public/' . $post->image_path);
-            }
+        $post->title = $request->input('title');
+        $post->rating = $request->input('rating');
+        $post->date = $request->input('date');
 
-            $imagePath = $request->file('image')->store('images', 'public');
-        } else {
-            $imagePath = $post->image_path;
+        if ($request->hasFile('image_path')) {
+            if ($post->image_path) {
+                Storage::delete('public/posts/images/' . $post->image_path);
+            }
+            $imagePath = $request->file('image_path')->store('public/posts/images');
+            $post->image_path = str_replace('public/', '', $imagePath);
         }
 
-        $post->update([
-            'title' => $request->title,
-            'description' => $request->description,
-            'image_path' => $imagePath,
-            'price' => $request->price,
-        ]);
+        $post->save();
 
-        return redirect()->route('admin.posts.index')->with('success', 'Post updated successfully.');
+        return redirect()->route('admin.posts.index');
     }
 
     public function destroy($id)
     {
-        $post = Post::findOrFail($id);
+        $post = post::findOrFail($id);
 
-        // حذف تصویر
-        if ($post->image_path && Storage::exists('public/' . $post->image_path)) {
-            Storage::delete('public/' . $post->image_path);
+        // حذف تصویر اگر وجود داشته باشد
+        if ($post->image_path && file_exists(storage_path('app/public/' . $post->image_path))) {
+            unlink(storage_path('app/public/' . $post->image_path));
         }
 
+        // حذف محصول
         $post->delete();
 
-        return redirect()->route('admin.posts.index')->with('success', 'Post deleted successfully.');
+        return redirect()->route('admin.posts.index')->with('success', 'محصول با موفقیت حذف شد.');
     }
+
+
 }
+

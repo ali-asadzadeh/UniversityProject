@@ -35,10 +35,10 @@
                             عنوان
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            توضیحات
+                            امتیاز
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            قیمت
+                            تاریخ
                         </th>
                         <th scope="col" class="px-6 py-3">
                             تصویر
@@ -61,10 +61,10 @@
                                 {{ $post->title }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $post->description }}
+                                {{ $post->rating }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $post->price }}
+                                {{ $post->date }}
                             </td>
                             <td class="px-6 py-4">
                                 @if($post->image_path && file_exists(storage_path('app/public/' . $post->image_path)))
@@ -89,6 +89,7 @@
                                             حذف
                                         </button>
                                     </form>
+
                                 </div>
                             </td>
                         </tr>

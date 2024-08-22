@@ -34,8 +34,7 @@
 
             <form class="space-y-6 px-5 pb-3" action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT') <!-- برای درخواست‌های PUT به‌منظور به‌روزرسانی اطلاعات -->
-
+                @method('PUT')
                 <div class="grid gap-5 grid-cols-2 mt-5">
                     <div>
                         <label for="name" class="block text-sm font-medium leading-6 text-gray-900">نام محصول:</label>

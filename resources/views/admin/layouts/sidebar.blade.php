@@ -6,22 +6,25 @@
     <div>
         <ul class="mx-4 text-gray-50 ps-5 text-lg">
             <li class="my-2 list-disc">
-                <a href="{{ url('admin') }}" class="text-gray-50 text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">داشبورد</a>
+                <a href="{{ url('admin') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">داشبورد</a>
             </li>
             <li class="my-2 list-disc">
-                <a href="{{ url('admin/products/index') }}" class="text-gray-50 text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت محصولات</a>
+                <a href="{{ url('admin/products/index') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت محصولات</a>
             </li>
             <li class="my-2 list-disc">
-                <a href="{{ url('admin/orders/index') }}" class="text-gray-50 text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت سفارشات</a>
+                <a href="{{ url('admin/orders/index') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت سفارشات</a>
             </li>
             <li class="my-2 list-disc">
-                <a href="{{ url('admin/posts/index') }}" class="text-gray-50  text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت پست ها</a>
+                <a href="{{ url('admin/posts/index') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت پست ها</a>
             </li>
             <li class="my-2 list-disc">
-                <a href="{{ url('admin/users/index') }}" class="text-gray-50 text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت کاربران</a>
+                <a href="{{ url('admin/users/index') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">مدیریت کاربران</a>
             </li>
             <li class="my-2 list-disc">
-                <a href="{{ url('/') }}" class="text-gray-50 text-xl hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">صفحه اصلی</a>
+                <a href="{{ url('admin/countdowns/index') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">شمارشگر معکوس</a>
+            </li>
+            <li class="my-2 list-disc">
+                <a href="{{ url('/') }}" class="text-gray-50 hover:text-gray-300 hover:transition hover:delay-90 hover:ms-0.5">صفحه اصلی</a>
             </li>
         </ul>
     </div>
