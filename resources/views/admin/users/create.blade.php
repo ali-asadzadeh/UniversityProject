@@ -78,8 +78,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="">
-                        <button type="submit" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E]">ایجاد</button>
+                    <div class="grid gap-5 grid-cols-2 mt-5">
+                        <div>
+                            <a href="{{ url('admin/users/index') }}" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-white bg-[#E63946] hover:bg-[#D62839] focus:ring-4 focus:outline-none focus:ring-[#D62839]">لغو</a>
+                        </div>
+                        <div>
+                            <button type="submit" class="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E]">ایجاد</button>
+                        </div>
                     </div>
                 </form>
             </div>

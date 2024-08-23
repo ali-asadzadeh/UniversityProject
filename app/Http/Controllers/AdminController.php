@@ -16,7 +16,7 @@ class AdminController extends Controller
     // متد برای نمایش صفحه اصلی ادمین
     public function index()
     {
-        return view('admin.homepage');
+        return view('admin');
     }
 
     // متد برای نمایش صفحه محصولات

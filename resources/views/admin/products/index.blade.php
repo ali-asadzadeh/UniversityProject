@@ -21,7 +21,7 @@
                     ایجاد محصول جدید
                 </a>
             </div>
-            <div class="relative overflow-x-auto sm:rounded-lg col-span-12">
+            <div class="relative max-h-[600px] overflow-x-auto overflow-y-auto sm:rounded-lg col-span-12">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>

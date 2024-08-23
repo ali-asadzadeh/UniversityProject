@@ -18,10 +18,10 @@
                     <!-- Carousel wrapper -->
                     <div class="relative overflow-hidden rounded-lg h-[200px] md:h-[600px]">
                         <div class="hidden duration-700 ease-in-out rounded" data-carousel-item>
-                            <img src="{{ asset('assets/images/pexels-lum3n-44775-1028599.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img src="{{ asset('assets/images/pexels-jmendezrf-1536619.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                         <div class="hidden duration-700 ease-in-out rounded" data-carousel-item>
-                            <img src="{{ asset('assets/images/pexels-janetrangdoan-1128678.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                            <img src="{{ asset('assets/images/pexels-jmendezrf-1536619.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
                         </div>
                     </div>
                 </div>
@@ -32,43 +32,43 @@
                 <div class="grid gap-10 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 text-center">
                     <div class="bg-gradient-to-b from-[#F8F9D9]/80 hover:bg-[#F8F9D9]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-cup-straw-swoosh text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">نوشیدنی</a>
+                            <img src="{{ asset('assets/images/c-1.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">پیراهن</a>
                             <span class="text-gray-700 text-xs">458 مورد</span>
                         </div>
                     </div>
                     <div class="bg-gradient-to-b from-[#ECF0FE]/80 hover:bg-[#ECF0FE]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-burger-fries text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">میان وعده</a>
+                            <img src="{{ asset('assets/images/c-2.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">ساعت</a>
                             <span class="text-gray-700 text-xs">458 مورد</span>
                         </div>
                     </div>
                     <div class="bg-gradient-to-b from-[#FCE0F4]/80 hover:bg-[#FCE0F4]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-jug text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">لبنیات</a>
+                            <img src="{{ asset('assets/images/c-3.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">مانتو</a>
                             <span class="text-gray-700 text-xs">458 مورد</span>
                         </div>
                     </div>
                     <div class="bg-gradient-to-b from-[#FEEBEA]/80 hover:bg-[#FEEBEA]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-salad text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">سبزیجات</a>
+                            <img src="{{ asset('assets/images/c-4.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">عینک</a>
                             <span class="text-gray-700 text-xs">458 مورد</span>
                         </div>
                     </div>
                     <div class="bg-gradient-to-b from-[#E3FCE3]/80 hover:bg-[#E3FCE3]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-baguette text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">نان</a>
+                            <img src="{{ asset('assets/images/c-5.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">کلاه</a>
                             <span class="text-gray-700 text-xs">458 مورد</span>
                         </div>
                     </div>
                     <div class="bg-gradient-to-b from-[#FEF7EE]/80 hover:bg-[#FEF7EE]/40 rounded-md p-4">
                         <div class="border border-white shadow-lg bg-white rounded-md p-4">
-                            <i class="fa-light fa-peach text-5xl text-[#5CAF90] my-1"></i>
-                            <a href="#" class="block mt-2 text-xl">میوه</a>
+                            <img src="{{ asset('assets/images/c-7.png') }}" alt="" class="w-[48px] h-[50px] mx-auto">
+                            <a href="#" class="block mt-2 text-xl">ژاکت</a>
                             <span class="text-gray-700 text-xs">5 مورد</span>
                         </div>
                     </div>
@@ -131,7 +131,12 @@
                                     </div>
                                 </div>
                                 <div class="mx-4 my-3">
-                                    <button type="button" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full">افزودن به سبد خرید</button>
+                                    <form action="{{ route('cart.add') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" class="text-white bg-[#5CAF90] hover:bg-[#4A9C7E] focus:ring-4 focus:outline-none focus:ring-[#4A9C7E] font-medium rounded text-sm px-4 py-2 text-center w-full mt-2">افزودن به سبد خرید</button>
+                                    </form>
                                 </div>
                             </div>
                         @endif
@@ -143,7 +148,7 @@
             <div class="container mx-auto my-4 md:mb-10 md:mt-32">
                 <div class="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-4 md:mx-0">
                     <div>
-                        <img src="{{ asset('assets/images/pexels-saizstudio-19798788.jpg') }}" alt="" class="w-[329px] h-[448px] rounded">
+                        <img src="{{ asset('assets/images/pexels-vika-glitter-392079-3315286.jpg') }}" alt="" class="w-[329px] h-[448px] rounded">
                     </div>
                     <div>
                         <div class="font-medium text-xl mb-5">
@@ -167,9 +172,14 @@
                                                 </div>
                                             </div>
                                             <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                                </a>
+                                                <form action="{{ route('cart.add') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button type="submit" class="border border-1 border-[#5CAF90] rounded">
+                                                        <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -199,9 +209,14 @@
                                                 </div>
                                             </div>
                                             <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                                </a>
+                                                <form action="{{ route('cart.add') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button type="submit" class="border border-1 border-[#5CAF90] rounded">
+                                                        <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -231,9 +246,14 @@
                                                 </div>
                                             </div>
                                             <div class="text-end me-3 opacity-0 transition-opacity duration-300 ease-in-out hover:opacity-100 absolute bottom-2 left-0 ps-72 pt-14">
-                                                <a href="" class="border border-1 border-[#5CAF90] rounded">
-                                                    <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
-                                                </a>
+                                                <form action="{{ route('cart.add') }}" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                    <input type="hidden" name="quantity" value="1">
+                                                    <button type="submit" class="border border-1 border-[#5CAF90] rounded">
+                                                        <i class="fa-light fa-basket-shopping text-[#5CAF90] p-1"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
